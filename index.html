@@ -16,6 +16,148 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="bg">
+        <img src="zaio_background.png" alt="background image">
+    </div>
+      
+    <div class="container-fluid">
+        <div id="page-wrap">
+            
+            <div class="shopping-cart"> <span><i class="fas fa-shopping-cart"></i></span><span class="badge badge-primary badge-pill">3</span></div>
+            <h1>HICKIES Originals</h1>
+            
+            <p style="text-indent: 6px;">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><span class="grey"> 1,293 reviews</span>
+            </p>
+            <p>
+                <span class="sign">$</span><span class="price" id="price">14.99</span> <span class="grey">$</span><span class="grey" id="originalPrice">17.99</span> 
+                <span class="grey bold">25% OFF</span>
+            </p>
+            <p style="text-indent: 6px;">ONLINE EXCLUSIVE</p> 
+            
+            <p id="color-btn">
+                <span class="bold">COLOR:</span> <span id="color">Select colour</span><br>
+                <button id="Red" onclick="change(this.id)"  type="button" class="btn btn-danger btn-circle btn-sm" ></button>
+                <button id="Purple" onclick="change(this.id)" type="button" class="btn btn-purple btn-circle btn-sm"></button> 
+                <button id="Black" onclick="change(this.id)" type="button" class="btn btn-black btn-circle btn-sm"></button>
+                <button id="White" onclick="change(this.id)" type="button" class="btn btn-light btn-circle btn-sm"></button> 
+                <button id="Orange" onclick="change(this.id)" type="button" class="btn btn-orange btn-circle btn-sm"></button> 
+                <button id="Yellow" onclick="change(this.id)" type="button" class="btn btn-yellow btn-circle btn-sm"></button> 
+                <button id="Blue" onclick="change(this.id)" type="button" class="btn btn-blue btn-circle btn-sm"></button> 
+                <button id="Navy" onclick="change(this.id)" type="button" class="btn btn-navy btn-circle btn-sm"></button> 
+                <button id="Lightbrown" onclick="change(this.id)" type="button" class="btn btn-light-brown btn-circle btn-sm"></button> 
+                <button id="Lightblue" onclick="change(this.id)" type="button" class="btn btn-light-blue btn-circle btn-sm"></button> 
+                <button id="Lightgreen" onclick="change(this.id)" type="button" class="btn btn-light-green btn-circle btn-sm"></button> 
+                <button id="Pink" onclick="change(this.id)" type="button" class="btn btn-pink btn-circle btn-sm"></button> 
+                <button id="Lightbrown" onclick="change(this.id)" type="button" class="btn btn-light-brown btn-circle btn-sm"></button> 
+                <button id="Green" onclick="change(this.id)" type="button" class="btn btn-green btn-circle btn-sm"></button> 
+                <button id="Grey" onclick="change(this.id)" type="button" class="btn btn-grey btn-circle btn-sm"></button>
+                <button id="Brown" onclick="change(this.id)" type="button" class="btn btn-brown btn-circle btn-sm"></button>
+                <button id="Aqua" onclick="change(this.id)" type="button" class="btn btn-aqua btn-circle btn-sm"></button>
+                <button id="Lightgray" onclick="change(this.id)" type="button" class="btn btn-light-grey btn-circle btn-sm"></button>
+            </p>
     
+            <p><span class="detail">Size Guide</span></p>
+            <p><span class="detail">Your Custom Fit</span></p>
+
+            <button type="button" id="count"class="btn btn-outline-dark qty btn-md" >0</button>
+            <button type="button" id="add" class="btn btn-dark add-btn btn-md" disabled></i>Add to Cart</button>
+
+
+            <hr style="height:1px;border:none;color:#000;background-color:#8B8B8B;">
+            <p><span class="detail">DETAILS</span></p>
+            <p id="detail"></p>
+            <hr style="height:1px;border:none;color:#000;background-color:#8B8B8B;">
+            <footer>
+                <p><span class="detail" data-toggle="modal" data-target="#helpModal">Need Help?</span></p>
+                <p><span class="detail">Shipping & Returns</span></p>
+            </footer>
+        
+        
+        </div>  
+
+        <!-- The add-cart Modal -->
+  <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h5 class="modal-title">Please add the quantity off the item you have selected</h5>
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+              <span id="color1"></span>
+              <span class="modal-btn">
+                <button type="button" onclick="countDown()" class="btn  btn-circle btn-xl"><i class="fas fa-minus"></i></button>
+                <button type="button" id="countOnModal"class="btn  btn-circle-no btn-xl " disabled>0</button>
+                <button type="button" onclick="countUp()"class="btn  btn-circle btn-xl"><i class="fas fa-plus"></i></button>
+              </span>
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" onclick="checkOut(), populate(), addItem2Table()" class="btn btn-outline-success" 
+            data-dismiss="modal">Agree</button>
+                <button type="button" onclick="reset()" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>  
+    
+    <!-- Help Modal-->
+    <div class="modal fade" id="helpModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Help</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <p>To add items in to the cart please select the colour first then click on the <strong>Add to Cart</strong> button to continue.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    <!--Checkout modal-->
+    <div class="modal fade" id="checkoutModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Please add the quantity off the item you have selected</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                <table id="table" class="table table-hover">
+
+                </table>
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" onclick="checkOut(), populate()" class="btn btn-outline-success" 
+            data-dismiss="modal">Agree</button>
+                <button type="button" onclick="reset()" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+            
+            </div>
+        </div>
+          </div>
+        
+        <!-- container end-->
+    </div>
 </body>
 </html>
